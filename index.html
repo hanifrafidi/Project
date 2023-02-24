@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="carousel">
+        <button class="btn-next" onClick="nextItem(1)">Next</button>
+        <button class="btn-prev" onClick="nextItem(-1)">Prev</button>
+        <div class="wrapper">
+            <div class="card">
+                <span>title 1</span>
+                <img class="photo" src="" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!</p>
+            </div>
+            <div class="card">
+                <span>title 2</span>
+                <img class="photo" src="" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!</p>
+            </div>
+            <div class="card">
+                <span>title 3</span>
+                <img class="photo" src="" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!</p>
+            </div>
+        </div>        
+    </div>
+</body>
+
+<script>
+    var itemIndex = 1;
+    showItem(itemIndex);
+
+    function nextItem(n){
+        showItem(itemIndex += n)        
+    }
+
+    function showItem(index){
+        var item = document.getElementsByClassName('card');
+        var wrapper = document.getElementsByClassName('wrapper');
+        
+        if(index > item.length){itemIndex = 1}
+        if(index < 1){itemIndex = item.length}
+
+        for(var i = 0; i < item.length; i++){            
+            item[i].classList.remove("card-show");
+            item[i].classList.remove("card-blur");
+            if(i != itemIndex - 1){
+                item[i].classList.add('card-blur')
+            }
+        }        
+
+        item[itemIndex - 1].classList.add("card-show");        
+
+        var move = (itemIndex -1 ) * (item[0].offsetWidth + 35)
+        wrapper[0].style.transform = 'translateX(-' + move + 'px)'                
+    }
+
+</script>
+</html>

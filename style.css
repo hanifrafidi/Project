@@ -1,0 +1,54 @@
+.carousel{
+    position: relative;    
+    min-height: 500px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+    right : -250px;
+    transition: transform 1s;
+}
+
+.card {
+  margin: 16px 16px;  
+  padding: 16px 16px 16px 16px;
+  width: 10rem;
+  height: 40%;
+  border: 1px solid black;
+  transform: scale(1);  
+  transition: transform 0.5s;  
+  background-color: white;
+  z-index: 1;
+}
+
+.card-blur{
+    filter: blur(1px);
+}
+
+.card-show{
+    transform: scale(1.4);
+    transition: transform 0.5s;  
+    z-index: 3;
+}
+
+.btn-next, .btn-prev{
+    height: 48px;
+    width: 100px;
+    position: absolute;    
+    top: 50%;
+}
+
+.btn-next{    
+    right: 1px;
+}
+
+.btn-prev{
+    left : 1px;
+}
