@@ -8,56 +8,85 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="carousel">
-        <button class="btn-next" onClick="nextItem(1)">Next</button>
-        <button class="btn-prev" onClick="nextItem(-1)">Prev</button>
+    <div class="carousel">        
         <div class="wrapper">
-            <div class="card">
-                <span>title 1</span>
-                <img class="photo" src="" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!</p>
+            <div class="card" data-pos="1" onClick='update(this)'>
+                <span>Title 1</span>
+                <img src="https://source.unsplash.com/random/300×300" alt="something" >
+                <div class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!
+                </div>                
             </div>
-            <div class="card">
-                <span>title 2</span>
-                <img class="photo" src="" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!</p>
+            <div class="card" data-pos="2" onClick='update(this)'>
+                <span>Title 1</span>
+                <img src="https://source.unsplash.com/random/300×300" alt="something" >
+                <div class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!
+                </div>                
             </div>
-            <div class="card">
-                <span>title 3</span>
-                <img class="photo" src="" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!</p>
-            </div>
+            <div class="card" data-pos="3" onClick='update(this)'>
+                <span>Title 1</span>
+                <img src="https://source.unsplash.com/random/300×300" alt="something" >
+                <div class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!
+                </div>                
+            </div>                        
         </div>        
+        <div class="navigation">
+            <ul>
+                <li class="nav" onclick="nextItem(1)" data-nav="1"></li>
+                <li class="nav" onclick="nextItem(2)" data-nav="2"></li>
+                <li class="nav" onclick="nextItem(3)" data-nav="3"></li>
+            </ul>
+        </div>
     </div>
 </body>
 
 <script>
+    var item = document.getElementsByClassName('card');    
+    var nav = document.getElementsByClassName('nav');    
+    var wrapper = document.querySelector('.wrapper');
+    
     var itemIndex = 1;
     showItem(itemIndex);
 
     function nextItem(n){
-        showItem(itemIndex += n)        
+        itemIndex = n
+        showItem(itemIndex)        
+    }        
+
+    function update(item){
+        
+        if(item.classList.contains('card-show')){
+            return
+        }else{
+            showItem(itemIndex = parseInt(item.getAttribute('data-pos')))
+            
+        }
     }
 
-    function showItem(index){
-        var item = document.getElementsByClassName('card');
-        var wrapper = document.getElementsByClassName('wrapper');
-        
+    function showItem(index){                 
         if(index > item.length){itemIndex = 1}
         if(index < 1){itemIndex = item.length}
 
         for(var i = 0; i < item.length; i++){            
             item[i].classList.remove("card-show");
             item[i].classList.remove("card-blur");
+            nav[i].classList.remove("active");            
+            item[1].style.transform = 'scale(1.2)'
             if(i != itemIndex - 1){
                 item[i].classList.add('card-blur')
+            }                        
+            if( index === 2){
+             item[1].style.transform = 'scale(1.4)'
             }
         }        
 
         item[itemIndex - 1].classList.add("card-show");        
+        nav[itemIndex - 1].classList.add("active");        
 
-        var move = (itemIndex -1 ) * (item[0].offsetWidth + 35)
-        wrapper[0].style.transform = 'translateX(-' + move + 'px)'                
+        var move = (itemIndex -1 ) * (item[0].offsetWidth - 50)
+        wrapper.style.transform = 'translateX(-' + move + 'px)'                                
     }
 
 </script>
