@@ -23,7 +23,7 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;    
-    left : 15%;
+    left : 10%;
     transition: transform 1s;
 }
 
@@ -33,8 +33,8 @@ body{
   flex-direction: column;
   gap: 1em;    
   padding: 16px 16px;
-  width: 15%;  
-  height: 55%;  
+  width: 10%;  
+  height: 40%;
   max-height: 55%;
   border: 1px solid black;
   transform: scale(1);  
@@ -48,8 +48,8 @@ body{
     max-height: 40%;
 }
 
-.text{
-    height: 30%;
+.text{    
+    max-height: 35%;
     overflow: scroll;    
 }
 
