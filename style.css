@@ -2,54 +2,49 @@ body{
     margin: 0 auto;
     padding : 0;
     overflow: hidden;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .carousel{
     position: relative;    
-    width: 100vw;
-    height: 100vh;    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;    
+    display: flex;    
+    align-items: center;        
 }
 
 .wrapper{
     width: 100%;
-    height: 80%;
+    height: 60%;
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;    
-    left : 10%;
+    align-items: center;        
     transition: transform 1s;    
 }
 
-.card {
-  margin: 0px -20px 0px -20px;  
+.card {  
   display: flex;
   flex-direction: column;
   gap: 1em;    
   padding: 16px 16px;
-  width: 10%;  
-  height: 40%;
-  max-height: 55%;
-  border: 1px solid black;
-  transform: scale(1);  
-  transition: transform 0.5s;  
+  width: 250px;    
+  height: 450px;  
+  border: 1px solid black;    
   background-color: white;  
+  position: absolute;
+  transition: all .3s ease-in;
 }
 
 .card > img {
     width: 100%;
     min-height: 40%;
-    max-height: 40%;
+    max-height: 40%;    
 }
 
 .text{    
-    max-height: 35%;
+    max-height: 25%;
     overflow: scroll;    
 }
 
@@ -61,23 +56,51 @@ body{
     display: none;  /* Safari and Chrome */
 }
 
+.card[data-pos="1"]{
+    transform: translateX(0%);  
+    z-index: 4;
+}
+
+.card[data-pos="2"],
+.card[data-pos="-2"] {        
+    filter: blur(1px);
+    z-index: 2;
+}
+
+.card[data-pos="3"],
+.card[data-pos="-3"] {    
+    filter: blur(1px);
+    z-index: 1;
+}
+
+.card[data-pos="2"]{
+    transform: translateX(40%) scale(.9);
+}
+
+.card[data-pos="-2"]{
+    transform: translateX(-40%) scale(.9);    
+}
+
+.card[data-pos="3"]{
+    transform: translateX(70%) scale(.7);
+}
+
+.card[data-pos="-3"]{
+    transform: translateX(-70%) scale(.7);
+}
+
 .card-blur{
     filter: blur(1px);
 }
 
 .card-show{
-    transform: scale(1.4);
-    transition: transform 0.5s;  
-    z-index: 4;
-}
-
-.card[data-pos="2"] {        
-    z-index: 2;
+    
 }
 
 .navigation{
  display: flex;
  justify-content: center; 
+ transition: all .3s ease-in;
 }
 
 ul{    
