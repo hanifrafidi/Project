@@ -10,12 +10,19 @@
 <body>
     <div class="carousel">        
         <div class="wrapper">
-            <div class="card" data-pos="1" onClick='update(this)'>
+            <div class="card" data-pos="1" onclick='update(this)'>
                 <span>Title 1</span>
                 <img src="https://source.unsplash.com/random/300×300" alt="something" >
                 <div class="text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!
-                </div>                
+                </div>       
+                <div class="navigation">
+                    <ul>
+                        <li class="nav" onclick="nextItem(1)" data-nav="1"></li>
+                        <li class="nav" onclick="nextItem(2)" data-nav="2"></li>
+                        <li class="nav" onclick="nextItem(3)" data-nav="3"></li>
+                    </ul>
+                </div>         
             </div>
             <div class="card" data-pos="2" onClick='update(this)'>
                 <span>Title 1</span>
@@ -31,39 +38,34 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!
                 </div>                
             </div>                        
-        </div>        
-        <div class="navigation">
-            <ul>
-                <li class="nav" onclick="nextItem(1)" data-nav="1"></li>
-                <li class="nav" onclick="nextItem(2)" data-nav="2"></li>
-                <li class="nav" onclick="nextItem(3)" data-nav="3"></li>
-            </ul>
-        </div>
+        </div>            
     </div>
 </body>
 
 <script>
     var item = document.getElementsByClassName('card');    
-    var nav = document.getElementsByClassName('nav');    
+    var nav = document.getElementsByClassName('nav'); 
+    var navigation = document.querySelector('.navigation')   
     var wrapper = document.querySelector('.wrapper');
     
     var itemIndex = 1;
     showItem(itemIndex);
 
-    function nextItem(n){
+    function nextItem(n){        
+        event.stopPropagation()
         itemIndex = n
-        showItem(itemIndex)        
-    }        
+        showItem(itemIndex)                
+    }            
 
     function update(item){
-        
+        event.stopPropagation()
         if(item.classList.contains('card-show')){
             return
         }else{
             showItem(itemIndex = parseInt(item.getAttribute('data-pos')))
             
         }
-    }
+    }    
 
     function showItem(index){                 
         if(index > item.length){itemIndex = 1}
@@ -84,9 +86,12 @@
 
         item[itemIndex - 1].classList.add("card-show");        
         nav[itemIndex - 1].classList.add("active");        
+        item[itemIndex - 1].append(navigation);        
 
-        var move = (itemIndex -1 ) * (item[0].offsetWidth - 50)
-        wrapper.style.transform = 'translateX(-' + move + 'px)'                                
+        var move = (itemIndex - 1 ) * (item[0].clientWidth - 50)
+        wrapper.style.transform = 'translateX(-' + move + 'px)'    
+        
+        // console.log(move)
     }
 
 </script>
