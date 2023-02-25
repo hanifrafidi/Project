@@ -10,7 +10,7 @@
 <body>
     <div class="carousel">        
         <div class="wrapper">
-            <div class="card" data-pos="1" onclick='update(this)'>
+            <div class="card" data-pos="1" data-item="1" onclick='update(this)'>
                 <span>Title 1</span>
                 <img src="https://source.unsplash.com/random/300×300" alt="something" >
                 <div class="text">
@@ -24,14 +24,14 @@
                     </ul>
                 </div>         
             </div>
-            <div class="card" data-pos="2" onClick='update(this)'>
+            <div class="card" data-pos="2" data-item="2" onClick='update(this)'>
                 <span>Title 1</span>
                 <img src="https://source.unsplash.com/random/300×300" alt="something" >
                 <div class="text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates minima eveniet ut eaque id adipisci, explicabo vitae accusantium fugiat deserunt, architecto, placeat non expedita corporis magnam esse delectus? Dignissimos, quaerat!
                 </div>                
             </div>
-            <div class="card" data-pos="3" onClick='update(this)'>
+            <div class="card" data-pos="3" data-item="3" onClick='update(this)'>
                 <span>Title 1</span>
                 <img src="https://source.unsplash.com/random/300×300" alt="something" >
                 <div class="text">
@@ -59,11 +59,11 @@
 
     function update(item){
         event.stopPropagation()
+        
         if(item.classList.contains('card-show')){
             return
         }else{
-            showItem(itemIndex = parseInt(item.getAttribute('data-pos')))
-            
+            showItem(itemIndex = parseInt(item.getAttribute('data-item')))            
         }
     }    
 
@@ -71,27 +71,28 @@
         if(index > item.length){itemIndex = 1}
         if(index < 1){itemIndex = item.length}
 
-        for(var i = 0; i < item.length; i++){            
-            item[i].classList.remove("card-show");
-            item[i].classList.remove("card-blur");
-            nav[i].classList.remove("active");            
-            item[1].style.transform = 'scale(1.2)'
-            if(i != itemIndex - 1){
-                item[i].classList.add('card-blur')
-            }                        
-            if( index === 2){
-             item[1].style.transform = 'scale(1.4)'
-            }
+        if(index === 1){
+            item[0].dataset.pos = '1'
+            item[1].dataset.pos = '2'
+            item[2].dataset.pos = '3'
+        }
+
+        if(index === 2){
+            item[0].dataset.pos = '-2'
+            item[1].dataset.pos = '1'
+            item[2].dataset.pos = '2'
+        }
+        if(index === 3){
+            item[0].dataset.pos = '-3'
+            item[1].dataset.pos = '-2'
+            item[2].dataset.pos = '1'
         }        
-
-        item[itemIndex - 1].classList.add("card-show");        
-        nav[itemIndex - 1].classList.add("active");        
-        item[itemIndex - 1].append(navigation);        
-
-        var move = (itemIndex - 1 ) * (item[0].clientWidth - 50)
-        wrapper.style.transform = 'translateX(-' + move + 'px)'    
         
-        // console.log(move)
+        for(var i = 0; i < item.length; i++){                        
+            nav[i].classList.remove("active");                        
+        }                        
+        nav[itemIndex - 1].classList.add("active");        
+        item[itemIndex - 1].append(navigation);                
     }
 
 </script>
