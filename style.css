@@ -1,7 +1,8 @@
 body {
   height: 100vh;
-margin: 0;
-overflow-y: hidden;
+  margin: 0;
+  overflow-y: hidden;
+  font-size: 1em;
 }
 
 #main {
@@ -20,14 +21,14 @@ flex-direction: column;
 }
 
 .logo img {
-  width:  100vw; 
-  height: 40vh;       
+  width:  80vw; 
+  height: 50vh;       
 }
 
 .logo{  
 position: absolute;    
-top: -40%;
-z-index: 1;
+top: -80px;
+z-index: 2;
 }
 
 #main > .container {
@@ -37,31 +38,41 @@ align-items: center;
 justify-content: center;
 background-color: black;
 border: 2px solid white;      
-padding-top: 7%;
 position: relative;
 z-index: 1;
-max-width: 50%;
+max-height: 90%;
+max-width: 40vw;
+margin-top: 3%;
+padding-top: 7%;
 }
 
-@media screen and (min-width: 480px) {  
-#main > .container{    
-  max-width: 50%;
-}
+@media screen and (min-width: 490px) {  
+  #main > .container{    
+    max-width: 50vw;
+  }
 }
 @media screen and (min-width: 768px) {  
-#main > .container{    
-  max-width: 40%;
+  #main > .container{    
+    max-width: 40vw;  
+  }
 }
-}
-@media screen and (min-width: 1000px) {  
-#main > .container{    
-  max-width: 30%;
-}
+@media screen and (min-width: 992px) {  
+  #main > .container{                
+    max-width: 25vw;
+  }
+
+  #main h1, p {
+    font-size: 0.7em;
+  }
+  
+  #main p {
+    width: 80%;
+  }
 }
 
 #main h1, p {
-color: #FFFFFF;
-text-align: center;
+  color: #FFFFFF;
+  text-align: center;
 }
 
 #main p {
@@ -71,7 +82,7 @@ text-align: center;
 #main .col {
 display: flex;
 justify-content: center;
-width: 80%;
+width: 60%;
 margin: 10px 0;
 }
 
@@ -87,10 +98,10 @@ margin: 0 auto;
 }
 
 #main .button-container{
-display: flex;
-flex-direction: column;  
-width: 100%;  
-  }
+  display: flex;
+  flex-direction: column;  
+  width: 75%;  
+}
 
 #main .donate-btn, .contact-btn {
 padding: 10px 20px;
