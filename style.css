@@ -2,7 +2,7 @@ body {
   height: 100vh;
   margin: 0;
   overflow-y: hidden;
-  font-size: 1em;
+  font-size: 16px;
 }
 
 #main {
@@ -20,13 +20,14 @@ display: flex;
 flex-direction: column;  
 }
 
-.logo img {  
-  height: 30vh;       
+.logo img {
+  width:  50vw; 
+  height: 40vh;       
 }
 
 .logo{  
   position: absolute;   
-  top: 0px; 
+  top: -80px; 
   z-index: 2;
 }
 
@@ -38,35 +39,38 @@ flex-direction: column;
   background-color: black;
   border: 2px solid white;      
   position: relative;
-  z-index: 1;
-  max-height: 60%;
-  max-width: 25vw;
-  padding: 5% 0;  
+  z-index: 1;  
+  height: 90vh;
+  max-width: 25vw;    
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;  
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 768px) {  
+  #main > .container{    
+    max-width: 30vw;  
+  }
+  .logo{      
+    top: -70px;     
+  }
 }
 
 #main h1, p {  
-  font-size: 0.7em;
   color: #FFFFFF;
   text-align: center;
+  font-size: 2vh
 }
 
 #main p {
   width: 60%;
 }
 
-@media screen and (max-width: 768px) {  
-  #main > .container{    
-    max-width: 50vw;  
-  }
-  #main h1, p {  
-    font-size: 0.8em;    
-  }
-}
-
 #main .col {
 display: flex;
 justify-content: center;
-width: 60%;
+max-width: 55%;
 margin: 10px 0;
 }
 
@@ -84,17 +88,17 @@ margin: 0 auto;
 #main .button-container{
   display: flex;
   flex-direction: column;  
-  width: 85%;  
+  width: 60%;  
 }
 
 #main .donate-btn, .contact-btn {
 padding: 10px 20px;
 border: none;
 border-radius: 5px;
-font-size: 1.2em;
+font-size: 2vh;
 font-weight: bold;
 cursor: pointer;
-margin: 5px 10%;  
+margin: 5px;  
 }
 
 #main .donate-btn {
