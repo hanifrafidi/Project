@@ -21,13 +21,13 @@ flex-direction: column;
 }
 
 .logo img {
-  width:  80vw; 
+  width:  60vw; 
   height: 50vh;       
 }
 
 .logo{  
 position: absolute;    
-top: -80px;
+top: -100px;
 z-index: 2;
 }
 
@@ -43,7 +43,7 @@ z-index: 1;
 max-height: 90%;
 max-width: 40vw;
 margin-top: 3%;
-padding-top: 7%;
+padding-top: 5%;
 }
 
 @media screen and (min-width: 490px) {  
@@ -59,24 +59,17 @@ padding-top: 7%;
 @media screen and (min-width: 992px) {  
   #main > .container{                
     max-width: 25vw;
-  }
-
-  #main h1, p {
-    font-size: 0.7em;
-  }
-  
-  #main p {
-    width: 80%;
-  }
+  }  
 }
 
 #main h1, p {
+  font-size: 0.7em;
   color: #FFFFFF;
   text-align: center;
 }
 
 #main p {
-  width: 80%;
+  width: 60%;
 }
 
 #main .col {
