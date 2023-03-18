@@ -144,11 +144,19 @@ body {
   
   #main p {    
     padding-top: 0px;
+    font-size: 2vh;
   }  
 
   .container p{
-    width: 280px;
+    width: 60vw;
+  }  
+  
+  #main .col .social-link img {
+    width: 18vw;
   }
   
+  #main .donate-btn, .contact-btn {    
+    width: 56vw;
+  }
 }
 
