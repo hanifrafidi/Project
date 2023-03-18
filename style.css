@@ -148,24 +148,15 @@ body {
   }  
 
   .container p{
-    width: 35vh;
+    width: 68vw;
   }  
   
   #main .col .social-link img {
-    width: 10vh;
+    width: 20vw;
   }
   
   #main .donate-btn, .contact-btn {    
-    max-width: 240px;
-    /* font-size:90%;     */
-        
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 5px 0;    
+    max-width: 70vw;                
   }
 
   #main h1{
