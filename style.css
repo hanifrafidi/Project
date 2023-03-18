@@ -148,19 +148,19 @@ body {
   }  
 
   .container p{
-    width: 35vh;
+    width: 200px;
   }  
   
   #main .col .social-link img {
-    width: 10vh;
+    width: 55px;
   }
   
   #main .donate-btn, .contact-btn {    
-    width: 35vh;
+    width: 210px;
   }
 
   #main h1{
-    font-size: 3vh;
+    font-size: 18px;
   }
   
 }
