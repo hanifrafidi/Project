@@ -32,12 +32,12 @@ body {
   position: absolute;
   top: 50%;
   left: 51%;
-  transform: translate(-50%, -185%); /* Ajustez la deuxième valeur pour modifier la position en hauteur */
+  transform: translate(-50%, -135%); /* Ajustez la deuxième valeur pour modifier la position en hauteur */
   z-index: 2;
 }
 #main .logo img {
     width: 1000px;
-    height:267px;
+    height:400px;
 }
 
 #main .container {
