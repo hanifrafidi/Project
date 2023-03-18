@@ -156,7 +156,8 @@ body {
   }
   
   #main .donate-btn, .contact-btn {    
-    max-width: 70vw;                
+    min-width: 220px;                
+    max-width: 220px;                
   }
 
   #main h1{
