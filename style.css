@@ -156,7 +156,8 @@ body {
   }
   
   #main .donate-btn, .contact-btn {    
-    width: 60vw;
+    width: 35vh;
+    font-size: 2.5vh;
   }
 
   #main h1{
