@@ -152,11 +152,15 @@ body {
   }  
   
   #main .col .social-link img {
-    width: 18vw;
+    width: 20vw;
   }
   
   #main .donate-btn, .contact-btn {    
-    width: 56vw;
+    width: 70vw;
+  }
+
+  #main h1{
+    font-size: 3vh;
   }
   /* some comment here */
 }
